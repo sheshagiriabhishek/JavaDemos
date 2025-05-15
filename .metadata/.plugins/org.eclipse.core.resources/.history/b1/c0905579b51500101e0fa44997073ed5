@@ -1,0 +1,49 @@
+package genericDemo;
+
+//public class Pair<K, V> {
+//	
+//	K k;
+//	V v;
+//	
+//	public Pair (K k, V v){
+//		this.k=k;
+//		this.v=v;
+//	}
+//	
+//	public K getKey(){
+//		return this.k;
+//	}
+//	
+//	public V getValue() {
+//		return this.v;
+//	}
+//
+//}
+
+public class Pair<K, V> {
+	
+	K k;
+	V v;
+	
+	public Pair (K k, V v){
+		this.k=k;
+		this.v=v;
+	}
+	
+	public K getKey(){
+		return this.k;
+	}
+	
+	public V getValue() {
+		return this.v;
+	}
+	
+	public  static <K extends String, V extends Number>  void printPairArray(Pair[] pairArray) {
+		
+		for(Pair p: pairArray) {
+			System.out.println(p.getKey()+": "+p.getValue());
+		}
+		
+	}
+
+}

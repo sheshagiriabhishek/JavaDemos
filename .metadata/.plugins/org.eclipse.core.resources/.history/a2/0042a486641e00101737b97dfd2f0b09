@@ -1,0 +1,83 @@
+package main;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+class Main{
+	public static void main(String[] args){
+	
+//		//Filter Even Numbers
+//		
+//		List<Integer> list1 = Arrays.asList(1,2,3,4);
+//		Stream<Integer> stream = list1.stream();
+//		
+//		List<Integer> res1 = stream
+//		.filter(n->n%2==0)
+//		.collect(Collectors.toList());
+//		
+//		System.out.println("res1:"+res1);
+//		
+//		//Convert Strings to Uppercase
+//		
+//		List<String> list2 = Arrays.asList("Alice", "Bob", "Abhi");
+//		Stream<String> stream2 = list2.stream();
+//		List<String> res2 = 
+//		stream2
+//		.map(s->s.toUpperCase())
+//		.collect(Collectors.toList());
+//		
+//		
+//		
+//		
+//		System.out.println("res2:"+res2);
+//		
+//		
+//		//Sort a List of Strings
+//		
+//		List<String> res3 = 
+//		stream2
+//		.sorted(new Comparator<String>() {
+//			public int compare(String s1, String s2) {
+//				return 0;
+//				
+//			}
+//			
+//		})
+//		.collect(null);
+//	
+//		
+//		System.out.println("res3:"+res3);
+	
+		//INTERMEDIATE LEVEL
+		
+		
+		//Get Distinct Elements
+		
+		
+
+		List<Integer> l4 = Arrays.asList(1,2,2,3,4,5,5,6);
+		Stream<Integer> s4 = l4.stream();
+		Set<Integer> hs = new HashSet<Integer>();
+		 List<Integer> r4 = s4
+		.filter(n-> !hs.contains(n))
+		.map(n->{
+			hs.add(n);
+			return n;
+			})
+		.collect(Collectors.toList());
+		 
+		 
+		 System.out.println(r4);
+		
+	
+	
+	
+	
+	}
+
+}
