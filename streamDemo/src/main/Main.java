@@ -264,6 +264,18 @@ class Main{
 			} );
 		
 		
+		 // Example: Basic thread
+        Runnable runnable =  new Runnable(){
+          
+		public void run(){
+            System.out.println("This is inside runnable");
+          }
+        };
+
+        Thread thread = new Thread(runnable);
+        thread.start();
+		
+		
 	}
 }
 
