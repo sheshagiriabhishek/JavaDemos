@@ -235,7 +235,7 @@ class Counter{
 		String data;
 		boolean hasData = false;
 		
-		void produce(String value){
+		synchronized void produce(String value){
 			while(hasData) {
 				try{wait();}
 				catch(InterruptedException e) {
@@ -249,7 +249,7 @@ class Counter{
 			notify();
 		}
 	
-		void consume(){
+		synchronized void consume(){
 			while(!hasData) {
 				try {
 					wait();
