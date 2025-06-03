@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -225,6 +226,23 @@ class Main{
 				new Employee("2","Moulya", "CS"),
 				new Employee("3","Harini", "EC"));
 		
+		
+		//First non repeated character
+			String str = "Abhishek";
+			
+			Map<Character, Long> map = str.chars()
+			.mapToObj(c -> (char)c )
+			.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+			
+			Optional<Object> character = map.entrySet().stream()
+			.filter(entry->entry.getValue()==1)
+			.findFirst()
+			.map(entry->entry.getKey());
+			
+			System.out.println ("Character is:"+character.get());
+			 
+		
+		
 //		List<Employee> ecEmps = employees
 //		.stream()
 //		.filter(emp->emp.getDept().equals(new String("EC")))
@@ -254,11 +272,11 @@ class Main{
 //		.forEach(name->System.out.println(name));
 		
 		
-		Map<String, List<Employee>> map = employees
+		Map<String, List<Employee>> map1 = employees
 		.stream()
 		.collect(Collectors.groupingBy(Employee::getDept));
 		
-		map.forEach( (k, v)->{
+		map1.forEach( (k, v)->{
 			System.out.println("Department:"+k);
 			v.forEach(emp->System.out.println(emp.getName())); 
 			} );
