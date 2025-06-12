@@ -3,6 +3,7 @@ package main;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -228,7 +229,7 @@ class Main{
 		
 		
 		//First non repeated character
-			String str = "Abhishek";
+			String str = "bhaishek";
 			
 			Map<Character, Long> map = str.chars()
 			.mapToObj(c -> (char)c )
@@ -239,7 +240,19 @@ class Main{
 			.findFirst()
 			.map(entry->entry.getKey());
 			
-			System.out.println ("Character is:"+character.get());
+			
+			Optional<Character> chr = str.chars()
+			.mapToObj(c->(char)c)
+			.collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()))
+			.entrySet()
+			.stream()
+			.filter(entry->entry.getValue()==1)
+			.findFirst()
+			.map(entry->entry.getKey());
+			
+			
+			
+			System.out.println ("Character is:"+chr.get());
 			 
 		
 		
